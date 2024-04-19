@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/18 12:49:10 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/18 12:49:34 by omartela         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	string_to_integer(const char *str)
@@ -13,28 +25,28 @@ int	string_to_integer(const char *str)
 	return (result);
 }
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-    int	atoi;
-    int sign;
+	int	atoi;
+	int	sign;
 
-    sign = 1;
-    while (*str == ' ' || *str == '\t' || *str == '\v'
+	sign = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\v'
 		|| *str == '\r' || *str == '\f' || *str == '\n')
 	{
 		++str;
 	}
-    if (*str == '+' || *str == '-')
-    {
-        if (*str == '-')
-        {
-            sign = -1;
-        }
-        ++str;
-    }
-    atoi = string_to_integer(str);
-    atoi = sign * atoi;
-    return (atoi);
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+		{
+			sign = -1;
+		}
+		++str;
+	}
+	atoi = string_to_integer(str);
+	atoi = sign * atoi;
+	return (atoi);
 }
 
 #include <stdio.h>

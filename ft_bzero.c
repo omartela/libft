@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/17 13:41:57 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/17 13:47:10 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
+	unsigned char	*new;
 
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	new = (unsigned char *)s;
+
+	while (len > 0)
 	{
-		if (*temp_str == temp_c)
-		{
-			return (temp_str);
-		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		*new = 0;
+		len = len - 1;
+		new = new + 1;
 	}
-	return (0);
 }
+/*
+#include <stdio.h>
+int main(void)
+{
+	char str[60] = "test";
+	ft_bzero(str, 1);
+	puts(str);
+	puts(str+2);
+}*/

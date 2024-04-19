@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/17 08:24:47 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/17 08:30:42 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+int	ft_tolower(int c)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
-
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	if (c >= 'A' && c <= 'Z')
 	{
-		if (*temp_str == temp_c)
-		{
-			return (temp_str);
-		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		c = c + 32;
 	}
-	return (0);
+	return (c);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	printf("%c", ft_tolower('#'));
 }

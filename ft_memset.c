@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/17 10:30:29 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/17 10:48:21 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memset(void *b, int x, size_t len)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
+	unsigned char			*new;
 
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	new = (unsigned char *)b;
+	while (len > 0)
 	{
-		if (*temp_str == temp_c)
-		{
-			return (temp_str);
-		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		*new = (unsigned char) x;
+		len = len - 1;
+		new = new + 1;
 	}
-	return (0);
+	return (b);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	int a;
+	printf("%d", (int)ft_memset(&a, 2, 1));
 }

@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/17 08:41:57 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/17 08:56:34 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+char	*ft_strchr(const char *str, int c)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
+	char	*ptr;
 
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	ptr = (char *)str;
+	while (*ptr != '\0')
 	{
-		if (*temp_str == temp_c)
+		if (c == *ptr)
 		{
-			return (temp_str);
+			return (ptr);
 		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		++ptr;
+	}
+	if (c == *ptr)
+	{
+		return (ptr);
 	}
 	return (0);
 }
+
+/* #include <stdio.h>
+int main()
+{
+	printf("%s", ft_strchr("test", 0));
+} */

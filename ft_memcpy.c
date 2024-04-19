@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/17 17:23:36 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/17 17:34:04 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
+	unsigned char	*dest;
+	unsigned char	*source;
 
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	while (len > 0)
 	{
-		if (*temp_str == temp_c)
-		{
-			return (temp_str);
-		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		*dest = *source;
+		dest = dest + 1;
+		source = source + 1;
+		len = len - 1;
 	}
-	return (0);
+	return (dst);
 }
+
+/*
+#include <stdio.h>
+int main(void)
+{
+	char src[5] = "test";
+	char dest[5];
+	puts(ft_memcpy(dest, src, 5));
+	//printf("%s", ft_memcpy(dest, src, 5));
+}
+*/

@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:50:25 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:55:27 by omartela         ###   ########.fr       */
+/*   Created: 2024/01/25 17:07:09 by omartela          #+#    #+#             */
+/*   Updated: 2024/01/30 13:43:53 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memchr(const void *str, int c, size_t n)
+char	*ft_strdup(const char *src)
 {
-	unsigned char	*temp_str;
-	unsigned char	temp_c;
+	char	*str;
+	char	*p;
+	int		len;
 
-	temp_c = (unsigned char) c;
-	temp_str = (unsigned char *) str;
-	while (n > 0)
+	len = 0;
+	while (src[len])
 	{
-		if (*temp_str == temp_c)
-		{
-			return (temp_str);
-		}
-		n = n - 1;
-		temp_str = temp_str + 1;
+		len++;
 	}
-	return (0);
+	str = malloc(len + 1);
+	if (!(str))
+	{
+		return (0);
+	}
+	p = str;
+	while (*src)
+	{
+		*p++ = *src++;
+	}
+	*p = '\0';
+	return (str);
 }
+/*
+#include <stdio.h>
+int main (void)
+{
+	printf("%s", ft_strdup("test23"));
+}*/
