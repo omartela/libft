@@ -96,7 +96,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-void print_split_result(char **split_result) {
+/* void print_split_result(char **split_result) {
     if (split_result == NULL) {
         printf("{NULL}\n");
         return;
@@ -202,4 +202,4 @@ int main() {
 
 	free (test10);
     return 0;
-}
+} */

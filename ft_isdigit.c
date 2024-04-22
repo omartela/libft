@@ -21,29 +21,3 @@ int	ft_isdigit(int c)
 		return (0);
 	}
 }
-
-
-#include <stdio.h> 
-// Function to perform the tests
-void test_ft_isdigit() 
-{
-    // Test cases for digits
-    printf("Test cases for digits:\n");
-    printf("Expected Output: 1\n");
-    printf("Actual Output: %d\n", ft_isdigit('0')); // should return 1
-    printf("Actual Output: %d\n", ft_isdigit('5')); // should return 1
-    printf("Actual Output: %d\n", ft_isdigit('9')); // should return 1
-
-    // Test cases for non-digits
-    printf("\nTest cases for non-digits:\n");
-    printf("Expected Output: 0\n");
-    printf("Actual Output: %d\n", ft_isdigit('a')); // should return 0
-    printf("Actual Output: %d\n", ft_isdigit('@')); // should return 0
-}
-
-// Function to test ft_isdigit
-int main()
-{
-    test_ft_isdigit();
-    return 0;
-}

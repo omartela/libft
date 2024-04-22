@@ -48,8 +48,7 @@ int	ft_atoi(const char *str)
 	atoi = sign * atoi;
 	return (atoi);
 }
-
-#include <stdio.h>
+/* 
 // Function to compare results of ft_atoi and atoi
 void compare_results(const char *str) {
     int result_ft = ft_atoi(str);
@@ -121,3 +120,4 @@ int main()
     const char *str14 = "–2147483648";
     compare_results(str14);
 }
+ */

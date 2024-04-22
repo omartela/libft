@@ -35,9 +35,3 @@ char	*ft_strdup(const char *src)
 	*p = '\0';
 	return (str);
 }
-/*
-#include <stdio.h>
-int main (void)
-{
-	printf("%s", ft_strdup("test23"));
-}*/

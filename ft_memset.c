@@ -24,10 +24,3 @@ void	*ft_memset(void *b, int x, size_t len)
 	}
 	return (b);
 }
-
-#include <stdio.h>
-int main(void)
-{
-	int a;
-	printf("%d", (int)ft_memset(&a, 2, 1));
-}

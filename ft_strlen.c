@@ -22,15 +22,3 @@ size_t	ft_strlen(const char *str)
 	}
 	return (counter);
 }
-/*
-#include <unistd.h>
-int	main(void)
-{
-	unsigned int i;
-	char *str;
-
-	str = "test";
-	i = 0;
-	i = ft_strlen(str);
-	write("%d", i);
-}*/

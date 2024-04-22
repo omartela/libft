@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 09:13:10 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/17 10:19:37 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/22 15:49:02 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/22 15:52:29 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strrchr(const char *str, int c)
-{
-	char	*ptr;
-	int		found;
+#include "libft.h"
 
-	found = 0;
-	ptr = 0;
-	while (*str != '\0')
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s != '\0')
 	{
-		if (c == *str)
-		{
-			ptr = (char *)str;
-			found = 1;
-		}
-		++str;
+		ft_putchar_fd(s, fd);
+		++s;
 	}
-	if (found == 1)
-	{
-		return (ptr);
-	}
-	if (c == *str)
-	{
-		ptr = (char *)str;
-		return (ptr);
-	}
-	return (0);
 }

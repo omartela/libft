@@ -40,29 +40,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr[i] = '\0';
 	return (rptr);
 }
-
-/* int main()
-{
-	char const src[19] = "Hello Hive";
-	char const src1[7] = "";
-	char *result1, *result3, *result5, *result7, *result8;
-	char *result2, *result4, *result6;
-
-	result1 = ft_substr(src, 3, 3);
-	printf("The substring is: %s\n", result1);
-	result2 = ft_substr(src, 3, 0);
-	printf("The substring is: %s\n", result2);
-	result3 = ft_substr(src, 3, 1);
-	printf("The substring is: %s\n", result3);
-	result4 = ft_substr(src, 3, 20);
-	printf("The substring is: %s\n", result4);
-	result5 = ft_substr(src, 0, 3);
-	printf("The substring is: %s\n", result5);
-	result6 = ft_substr(src, 20, 3);
-	printf("The substring is: %s\n", result6);
-	result7 = ft_substr(src1, 3, 3);
-	printf("The substring is: %s\n", result7);
-	result8 = ft_substr(src1, 0, 0);
-	printf("The substring is: %s\n", result8);
-	return 0;
-} */
