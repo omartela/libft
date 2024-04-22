@@ -28,5 +28,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strdup(const char *src);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

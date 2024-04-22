@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ptr);
 }
 
-// Test function
+/* // Test function
 void test_strtrim(const char *s1, const char *set, const char *expected_result) {
     printf("Test: ft_strtrim(\"%s\", \"%s\")\n", s1, set);
 
@@ -76,4 +76,4 @@ int main() {
     test_strtrim("ABC", "AB", "C");
 
     return 0;
-}
+} */

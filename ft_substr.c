@@ -41,7 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (rptr);
 }
 
-int main()
+/* int main()
 {
 	char const src[19] = "Hello Hive";
 	char const src1[7] = "";
@@ -65,4 +65,4 @@ int main()
 	result8 = ft_substr(src1, 0, 0);
 	printf("The substring is: %s\n", result8);
 	return 0;
-}
+} */
