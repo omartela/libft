@@ -21,5 +21,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		ft_lstdelone(*lst, del);
 		*lst = node;
 	}
-	lst = 0;
+	*lst = 0;
 }
