@@ -11,14 +11,20 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-    t_list *ptr;
-    ptr = malloc(sizeof(t_list));
-    if (!ptr)
-        return (0);
-    ptr[0].next = NULL;
-    ptr[0].content = malloc(sizeof(*content));
-    if (!ptr[0].content)
-        return (0);
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (0);
+	node->next = 0;
+	node->content = malloc(sizeof(*content));
+	if (!node->content)
+	{
+		free(node);
+		return (0);
+	}
+	ft_memcpy(node->content, content, sizeof(content));
+	return (node);
 }
