@@ -13,20 +13,20 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t	dest_len;
+	size_t	j;
+	size_t	amount_to_append;
 
-	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	dest_len = ft_strlen(dest);
+	amount_to_append = size - dest_len - 1;
+	if (size == 0 || size <= dest_len)
+		return (ft_strlen(src) + size);
+	while (src[j] != '\0' && j < amount_to_append)
 	{
-		i = i + 1;
-	}
-	while (src[j] != '\0' && i + j + 1 < size)
-	{
-		dest[i + j] = src[j];
+		dest[dest_len + j] = src[j];
 		j = j + 1;
 	}
-	dest[i + j] = '\0';
-	return (i + ft_strlen(src));
+	dest[dest_len + j] = '\0';
+	return (dest_len + ft_strlen(src));
 }

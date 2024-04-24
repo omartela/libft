@@ -19,12 +19,6 @@ t_list	*ft_lstnew(void *content)
 	if (!node)
 		return (0);
 	node->next = 0;
-	node->content = malloc(sizeof(*content));
-	if (!node->content)
-	{
-		free(node);
-		return (0);
-	}
-	ft_memcpy(node->content, content, sizeof(content));
+	node->content = content;
 	return (node);
 }

@@ -30,20 +30,26 @@ static char	*number_to_string(char *ptr, int n)
 {
 	int	i;
 
-	i = count_digit(n);
-	ptr = ptr + i;
-	*ptr = '\0';
-	--ptr;
+	i = 0;
+	if (n < 0)
+	{
+		n = n * -1;
+		*ptr = '-';
+		i = i + count_digit(n) + 1;
+	}
+	else
+		i = i + count_digit(n);
+	ptr[i] = '\0';
+	--i;
 	if (n == 0)
 	{
-		*ptr = '0';
-		return (ptr);
+		ptr[i] = '0';
 	}
 	while (n > 0)
 	{
-		*ptr = n % 10 + '0';
-		--ptr;
+		ptr[i] = n % 10 + '0';
 		n = n / 10;
+		--i;
 	}
 	return (ptr);
 }
@@ -51,12 +57,29 @@ static char	*number_to_string(char *ptr, int n)
 char	*ft_itoa(int n)
 {
 	char	*ptr;
-	char	*start_ptr;
 
-	ptr = malloc(sizeof(char) * count_digit(n) + 1);
+	if (n == -2147483648)
+	{
+		ptr = malloc(sizeof(char) * 12);
+		if (!ptr)
+			return (0);
+		ft_strlcpy(ptr, "-2147483648", 12);
+		return (ptr);
+	}
+	if (n < 0)
+		ptr = malloc(sizeof(char) * count_digit(n) + 2);
+	else
+		ptr = malloc(sizeof(char) * count_digit(n) + 1);
 	if (!ptr)
 		return (0);
-	start_ptr = ptr;
 	number_to_string(ptr, n);
-	return (start_ptr);
+	return (ptr);
 }
+
+/* int	main(void)
+{
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(-1));
+	printf("%s\n", ft_itoa('A'));
+} */

@@ -18,10 +18,20 @@ int	ft_lstsize(t_list *lst)
 	if (!lst)
 		return (0);
 	n_nodes = 0;
-	while (lst->next != 0)
+	while (lst != 0)
 	{
 		lst = lst->next;
 		n_nodes = n_nodes + 1;
 	}
 	return (n_nodes);
 }
+
+/* int main(void)
+{
+	t_list	*l;
+
+	l = ft_lstnew(ft_strdup("1"));
+ 	l->next = ft_lstnew(ft_strdup("2"));
+ 	l->next->next = ft_lstnew(ft_strdup("3"));
+	printf("%d", ft_lstsize(l));
+} */

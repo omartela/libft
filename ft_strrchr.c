@@ -9,30 +9,18 @@
 /*   Updated: 2024/04/17 10:19:37 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strrchr(const char *str, int c)
-{
-	char	*ptr;
-	int		found;
+#include "libft.h"
 
-	found = 0;
-	ptr = 0;
-	while (*str != '\0')
+char	*ft_strrchr(const char *s, int c)
+{
+	int	len;
+
+	len = ft_strlen(s);
+	while (len >= 0)
 	{
-		if (c == *str)
-		{
-			ptr = (char *)str;
-			found = 1;
-		}
-		++str;
-	}
-	if (found == 1)
-	{
-		return (ptr);
-	}
-	if (c == *str)
-	{
-		ptr = (char *)str;
-		return (ptr);
+		if (s[len] == (char) c)
+			return ((char *)(s + len));
+		--len;
 	}
 	return (0);
 }
