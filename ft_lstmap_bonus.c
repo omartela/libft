@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 15:06:00 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 15:17:29 by omartela         ###   ########.fr       */
+/*   Created: 2024/04/25 13:31:58 by omartela          #+#    #+#             */
+/*   Updated: 2024/04/25 13:32:00 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char		*ptr;
-	size_t		i;
-	size_t		sublen;
-	size_t		s_len;
+	t_list	*new_list;
+	void	*mapped_content;
+	t_list	*new_node;
 
-	if (!s)
-		return (0);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	sublen = s_len - start;
-	if (len < sublen)
-		sublen = len;
-	ptr = (char *) malloc(sizeof(char) * (sublen + 1));
-	if (!ptr)
+	new_list = NULL;
+	if (!lst || !f || !del)
 		return (NULL);
-	i = 0;
-	while (i < sublen && s)
+	while (lst)
 	{
-		ptr[i] = s[start];
-		start++;
-		i++;
+		mapped_content = f(lst->content);
+		new_node = ft_lstnew(mapped_content);
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			del(mapped_content);
+			return (0);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (new_list);
 }

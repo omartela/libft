@@ -13,15 +13,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	char	*ptr;
+	unsigned int		i;
+	char				*ptr;
 
 	i = 0;
+	if (!s)
+		return (0);
 	ptr = ft_strdup(s);
+	if (!ptr)
+		return (0);
 	while (ptr[i] != '\0')
 	{
-		(*f)(i, ptr[i]);
-		++i;
+		ptr[i] = f(i, ptr[i]);
+		i++;
 	}
+	ptr[i] = '\0';
 	return (ptr);
 }

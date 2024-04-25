@@ -10,14 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <assert.h>
+#include "string.h"
 
-int main(void)
-{
-	return (0);
-}
-
-/* // Function to compare results of ft_calloc and calloc
-void compare_results(size_t nmemb, size_t size) {
+// Function to compare results of ft_calloc and calloc
+void compare_results_calloc(size_t nmemb, size_t size) {
     size_t total_size = nmemb * size;
     void *result_ft = ft_calloc(nmemb, size);
     void *result_calloc = calloc(nmemb, size);
@@ -134,65 +131,73 @@ void test_ft_isprint() {
     printf("Expected Output: 0\n");
     printf("Actual Output: %d\n", ft_isprint(31)); // should return 0 (non-printable)
     printf("Actual Output: %d\n", ft_isprint(127)); // should return 0 (non-printable)
-    printf("Actual Output: %d\n", ft_isprint(0)); // should return 0 (null character)
-}
-
-void print_split_result(char **split_result) {
-    if (split_result == NULL) {
-        printf("{NULL}\n");
-        return;
-    }
-    
-    printf("{");
-    for (int i = 0; split_result[i] != NULL; i++) {
-        printf("\"%s\"", split_result[i]);
-        if (split_result[i + 1] != NULL)
-            printf(", ");
-    }
-    printf("}\n");
+    printf("Actual Output: %d\n\n\n", ft_isprint(0)); // should return 0 (null character)
 }
 
 void test_memmove() {
     // Test case 1: Moving from src to dst
     char str1[] = "1234567890";
     char str2[20] = "abcdefghij";
-	char str20[] = "1234567890";
     char str22[20] = "abcdefghij";
     ft_memmove(str2 + 3, str1 + 2, 5);
-	printf("Test Case 1: %s\n", str2);
-	memmove(str22 + 3, str20 + 2, 5);
-    printf("Test Case 1: %s\n", str22);
+    printf("Test Case 1 (ft_memmove): %s\n", str2);
+    memmove(str22 + 3, str1 + 2, 5);
+    printf("Test Case 1 (memmove): %s\n", str22);
+    printf("Test Case 1 comparison: %s\n", strcmp(str2, str22) == 0 ? "Passed" : "Failed");
 
     // Test case 2: Moving from dst to src
     char str3[] = "1234567890";
+    char str32[] = "1234567890";
     ft_memmove(str3 + 2, str3 + 4, 5);
-    printf("Test Case 2: %s\n", str3);
+    printf("Test Case 2 (ft_memmove): %s\n", str3);
+    memmove(str32 + 2, str32 + 4, 5);
+    printf("Test Case 2 (memmove): %s\n", str32);
+    printf("Test Case 2 comparison: %s\n", strcmp(str3, str32) == 0 ? "Passed" : "Failed");
 
     // Test case 3: Moving overlapping memory region forward
     char str4[] = "1234567890";
-	// void *ft_memmove(void *dst, const void *src, size_t len)
+    char str42[] = "1234567890";
     ft_memmove(str4 + 4, str4 + 2, 4);
-    printf("Test Case 3: %s\n", str4);
+    printf("Test Case 3 (ft_memmove): %s\n", str4);
+    memmove(str42 + 4, str42 + 2, 4);
+    printf("Test Case 3 (memmove): %s\n", str42);
+    printf("Test Case 3 comparison: %s\n", strcmp(str4, str42) == 0 ? "Passed" : "Failed");
 
     // Test case 4: Moving overlapping memory region backward
     char str5[] = "1234567890";
+    char str52[] = "1234567890";
     ft_memmove(str5 + 2, str5 + 4, 4);
-    printf("Test Case 4: %s\n", str5);
+    printf("Test Case 4 (ft_memmove): %s\n", str5);
+    memmove(str52 + 2, str52 + 4, 4);
+    printf("Test Case 4 (memmove): %s\n", str52);
+    printf("Test Case 4 comparison: %s\n", strcmp(str5, str52) == 0 ? "Passed" : "Failed");
 
     // Test case 5: Moving non-overlapping memory region
     char str6[] = "1234567890";
-    ft_memmove(str6 + 10, str6, 3);
-    printf("Test Case 5: %s\n", str6); // Output should be: "1234567890123"
+    char str62[] = "1234567890";
+    ft_memmove(str6 + 10, str6, 1);
+    printf("Test Case 5 (ft_memmove): %s\n", str6); // Output should be: "1234567890123"
+    memmove(str62 + 10, str62, 1);
+    printf("Test Case 5 (memmove): %s\n", str62);
+    printf("Test Case 5 comparison: %s\n", strcmp(str6, str62) == 0 ? "Passed" : "Failed");
 
     // Test case 6: Moving non-overlapping memory region (dst < src)
     char str7[] = "1234567890";
+    char str72[] = "1234567890";
     ft_memmove(str7, str7 + 2, 5);
-    printf("Test Case 6: %s\n", str7); // Output should be: "3456787890"
+    printf("Test Case 6 (ft_memmove): %s\n", str7); // Output should be: "3456787890"
+    memmove(str72, str72 + 2, 5);
+    printf("Test Case 6 (memmove): %s\n", str72);
+    printf("Test Case 6 comparison: %s\n", strcmp(str7, str72) == 0 ? "Passed" : "Failed");
 
     // Test case 7: Moving non-overlapping memory region (dst > src)
     char str8[] = "1234567890";
+    char str82[] = "1234567890";
     ft_memmove(str8 + 2, str8, 5);
-    printf("Test Case 7: %s\n", str8); // Output should be: "121234567890"
+    printf("Test Case 7 (ft_memmove): %s\n", str8); // Output should be: "121234567890"
+    memmove(str82 + 2, str82, 5);
+    printf("Test Case 7 (memmove): %s\n", str82);
+    printf("Test Case 7 comparison: %s\n\n", strcmp(str8, str82) == 0 ? "Passed" : "Failed");
 }
 
 void test_strjoin(const char *s1, const char *s2, const char *expected_result) {
@@ -232,34 +237,10 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
 	printf("\n");
     // Free memory
     free(result);
-} */
+}
 
-/* int main() {
-    // Test 1: Allocating memory for an array of integers
-    compare_results(5, sizeof(int));
-
-    // Test 2: Allocating memory for an array of floats
-    compare_results(10, sizeof(float));
-
-    // Test 3: Allocating memory for an array of structs
-    struct ExampleStruct {
-        int a;
-        float b;
-        char c;
-    };
-    compare_results(3, sizeof(struct ExampleStruct));
-
-    // Test 4: Allocating memory for a string
-    compare_results(1, 20 * sizeof(char));
-
-    // Add more tests here...
-
-	test_ft_isalnum();
-	test_ft_isalpha();
-	test_ft_isascii();
-	test_ft_isdigit();
-	test_ft_isprint();
-
+void test_memcpy()
+{
 	// Test 1: Equal Memory Blocks
     char str1[] = "hello";
     char str2[] = "hello";
@@ -285,30 +266,63 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
 	char dest[5];
 	puts(ft_memcpy(dest, src, 5));
 	//printf("%s", ft_memcpy(dest, src, 5));
+}
 
-	test_memmove();
+void test_ft_strchr(void)
+{
+    // Test case 1: Search for character 'c' in a string where 'c' is present
+    const char *str1 = "hello";
+    char target1 = 'e';
+    char *result1 = ft_strchr(str1, target1);
+    printf("Test case 1: Search for '%c' in \"%s\"\n", target1, str1);
+    printf("Expected result: Pointer to 'e'\n");
+    printf("Actual result: Pointer to '%c'\n\n", *result1);
+    assert(result1 == &str1[1]);
 
-	printf("%s", ft_strchr("test", 0));
-	printf("%s", ft_strdup("test23"));
+    // Test case 2: Search for character 'c' in a string where 'c' is not present
+}
 
-	// Basic Test Cases
-    test_strjoin("Hello", "World", "HelloWorld");
-    test_strjoin("", "World", "World");
-    test_strjoin("Hello", "", "Hello");
-    test_strjoin("", "", "");
+void test_ft_strdup(void)
+{
+    // Test case 1: Duplicate a non-empty string
+    const char *src1 = "hello";
+    char *result1 = ft_strdup(src1);
+    printf("Test case 1: Duplicate \"%s\"\n", src1);
+    printf("Expected result: \"%s\"\n", src1);
+    printf("Actual result: \"%s\"\n\n", result1);
+    assert(strcmp(result1, src1) == 0);
+    free(result1); // Free allocated memory
 
-    // Memory Allocation Tests
-    test_strjoin(NULL, "World", NULL);
-    test_strjoin("Hello", NULL, NULL);
+    // Test case 2: Duplicate an empty string
+    const char *src2 = "";
+    char *result2 = ft_strdup(src2);
+    printf("Test case 2: Duplicate \"%s\"\n", src2);
+    printf("Expected result: \"%s\"\n", src2);
+    printf("Actual result: \"%s\"\n\n", result2);
+    assert(strcmp(result2, src2) == 0);
+    free(result2); // Free allocated memory
 
-    // Edge Cases
-    test_strjoin("Hello\n", "World", "Hello\nWorld");
-    test_strjoin("Hello\0", "World", "Hello\0World");
+    // Test case 3: Duplicate a string containing special characters
+    const char *src3 = "special characters: @#$%^&*()";
+    char *result3 = ft_strdup(src3);
+    printf("Test case 3: Duplicate \"%s\"\n", src3);
+    printf("Expected result: \"%s\"\n", src3);
+    printf("Actual result: \"%s\"\n\n", result3);
+    assert(strcmp(result3, src3) == 0);
+    free(result3); // Free allocated memory
 
-    // Boundary Cases
-    test_strjoin("A", "B", "AB");
-    test_strjoin("AB", "CD", "ABCD");
+    // Test case 4: Duplicate a string with null terminator in the middle
+    const char *src4 = "hello\0world";
+    char *result4 = ft_strdup(src4);
+    printf("Test case 4: Duplicate \"%s\"\n", src4);
+    printf("Expected result: \"%s\"\n", src4);
+    printf("Actual result: \"%s\"\n\n", result4);
+    assert(strcmp(result4, src4) == 0);
+    free(result4); // Free allocated memory
+}
 
+void test_strlcat()
+{
 	char dest1[20] = "Hello";
     char src1[] = "World";
     unsigned int size1 = sizeof(dest1);
@@ -331,11 +345,14 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
     printf("Test 2 (ft_strlcat): %lu\n", ft_strlcat(dest3, src3, size3));
     printf("Test 2 (strlcat): %lu\n", strlcat(dest4, src4, size4));
 
-    printf("Modified dest1: %s\n", dest1);
-    printf("Modified dest2: %s\n", dest2);
-    printf("Modified dest3: %s\n", dest3);
-	printf("Modified dest4: %s\n", dest4);
+    printf("Modified dest1 ft_strlcat: %s\n", dest1);
+    printf("Modified dest2 strlcat: %s\n", dest2);
+    printf("Modified dest3 ft_strlcat: %s\n", dest3);
+	printf("Modified dest4 strlcat: %s\n\n\n", dest4);
+}
 
+void test_strlcpy()
+{
 	// Test cases for ft_strlcpy
     char destination[20];
     const char *source = "Hello, world!";
@@ -346,6 +363,7 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
     printf("ft_strlcpy result: %zu, dst: '%s'\n", result, destination);
 
     // Test case 2: Large buffer
+	char src[400];
     result = ft_strlcpy(destination, src, sizeof(destination));
     printf("ft_strlcpy result: %zu, dst: '%s'\n", result, destination);
 
@@ -355,22 +373,22 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
     printf("ft_strlcpy result: %zu, dst: '%s'\n", result, destination);
 
     // Function calls for original strlcpy for comparison
-    char dest2[20];
 
     // Test case 1: Small buffer
-    result = strlcpy(dest2, src, 5);
-    printf("strlcpy result: %zu, dst: '%s'\n", result, dest2);
+    result = strlcpy(destination, source, 5);
+    printf("strlcpy result: %zu, dst: '%s'\n", result, destination);
 
     // Test case 2: Large buffer
-    result = strlcpy(dest2, src, sizeof(dest2));
-    printf("strlcpy result: %zu, dst: '%s'\n", result, dest2);
+    result = strlcpy(destination, src, sizeof(destination));
+    printf("strlcpy result: %zu, dst: '%s'\n", result, destination);
 
     // Test case 3: Empty source string
-    result = strlcpy(dest2, empty_src, sizeof(dest2));
-    printf("strlcpy result: %zu, dst: '%s'\n", result, dest2);
+    result = strlcpy(destination, empty_src, sizeof(destination));
+    printf("strlcpy result: %zu, dst: '%s'\n\n", result, destination);
+}
 
-	write("%d", ft_strlen("test"));
-
+void test_strncmp()
+{
 	char str1[] = "Hella";
     char str2[] = "Hello";
     unsigned int n1 = 5;
@@ -391,7 +409,10 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
 
     printf("Test 3 (ft_strncmp): %d\n", ft_strncmp(str5, str6, n3));
     printf("Test 3 (strncmp): %d\n", strncmp(str5, str6, n3));
+}
 
+void test_strnstr()
+{
 	char haystack[20] = "Hello.Hive.Five";
 	char haystack2[20] = "\0";
 	char needle[10] = "ve";
@@ -452,7 +473,10 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
 	result8 = ft_strnstr(haystack2, needle, len);
 	printf("The substring is: %s\n", result7);
 	printf("The substring is: %s\n\n", result8);
+}
 
+void test_strrchr()
+{
 	const char str[] = "Hello.Hive.Five";
 	const char ch = '.';
 	const char ch2 = 'D';
@@ -477,6 +501,94 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
 
 	printf("String after orig |%c| is - |%s|\n", ch3, result5);
 	printf("String after mine |%c| is - |%s|\n", ch3, result6);
+}
+
+void print_split_result(char **split_result) {
+    if (split_result == NULL) {
+        printf("{NULL}\n");
+        return;
+    }
+    
+    printf("{"); 
+    for (int i = 0; split_result[i]; i++) {
+        printf("\"%s\"", split_result[i]);
+        if (split_result[i + 1] != NULL)
+            printf(", ");
+    }
+    printf("}\n");
+}
+
+static void test_ft_split(const char *s, char c) {
+    printf("Test for string: \"%s\" with delimiter '%c'\n", s, c);
+    char **split_result = ft_split(s, c);
+    printf("Split result: ");
+    print_split_result(split_result);
+    
+    // Free allocated memory
+    if (split_result != NULL) {
+        for (int i = 0; split_result[i] != NULL; i++)
+            free(split_result[i]);
+        free(split_result);
+    }
+}
+
+int main() {
+    // Test 1: Allocating memory for an array of integers
+    compare_results_calloc(5, sizeof(int));
+
+    // Test 2: Allocating memory for an array of floats
+    compare_results_calloc(10, sizeof(float));
+
+    // Test 3: Allocating memory for an array of structs
+    struct ExampleStruct {
+        int a;
+        float b;
+        char c;
+    };
+    compare_results_calloc(3, sizeof(struct ExampleStruct));
+
+    // Test 4: Allocating memory for a string
+    compare_results_calloc(1, 20 * sizeof(char));
+
+    // Add more tests here...
+
+	test_ft_isalnum();
+	test_ft_isalpha();
+	test_ft_isascii();
+	test_ft_isdigit();
+	test_ft_isprint();
+
+	test_memmove();
+
+	test_ft_strchr();
+    printf("All ft_strchr tests passed successfully!\n\n");
+
+	test_ft_strdup();
+    printf("All ft_strdup tests passed successfully!\n\n");
+
+	// Basic Test Cases
+    test_strjoin("Hello", "World", "HelloWorld");
+    test_strjoin("", "World", "World");
+    test_strjoin("Hello", "", "Hello");
+    test_strjoin("", "", "");
+
+    // Memory Allocation Tests
+    test_strjoin(NULL, "World", NULL);
+    test_strjoin("Hello", NULL, NULL);
+
+    // Edge Cases
+    test_strjoin("Hello\n", "World", "Hello\nWorld");
+    test_strjoin("Hello\0", "World", "Hello\0World");
+
+    // Boundary Cases
+    test_strjoin("A", "B", "AB");
+    test_strjoin("AB", "CD", "ABCD");
+
+	test_strlcat();
+	test_strlcpy();
+	test_strncmp();
+	test_strnstr();
+	test_strrchr();
 
 	// Basic Test Cases
     test_strtrim("  Hello World  ", " ", "Hello World");
@@ -542,5 +654,44 @@ void test_strtrim(const char *s1, const char *set, const char *expected_result) 
     assert(ft_toupper('9') == '9');
     assert(ft_toupper('$') == '$');
 
-    printf("All tests passed!\n");
-} */
+    printf("All tests lower and upper tests passed!\n\n");
+
+	 // Test 1
+    test_ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+
+    // Test 2
+    test_ft_split("split  ||this|for|me|||||!|", '|');
+
+    // Test 3
+    test_ft_split("hello!", ' ');
+
+    // Test 4
+    test_ft_split("apples,oranges,bananas", ',');
+
+    // Test 5
+    test_ft_split("  hello", ' ');
+
+    // Test 6
+    test_ft_split("  hello  world", ' ');
+
+    // Test 7
+    test_ft_split("hello  world  ", ' ');
+
+    // Test 8
+    test_ft_split("apples,oranges;bananas", ';');
+
+    // Test 9
+    char *long_str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    test_ft_split(long_str, ' ');
+
+    // Test 10
+    test_ft_split(NULL, ' ');
+
+	// Test 11
+    test_ft_split("test", 0);
+
+	test_ft_split("", 'a');
+	test_ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
+
+    return 0;
+}
