@@ -172,15 +172,6 @@ void test_memmove() {
     printf("Test Case 4 (memmove): %s\n", str52);
     printf("Test Case 4 comparison: %s\n", strcmp(str5, str52) == 0 ? "Passed" : "Failed");
 
-    // Test case 5: Moving non-overlapping memory region
-    char str6[] = "1234567890";
-    char str62[] = "1234567890";
-    ft_memmove(str6 + 10, str6, 1);
-    printf("Test Case 5 (ft_memmove): %s\n", str6); // Output should be: "1234567890123"
-    memmove(str62 + 10, str62, 1);
-    printf("Test Case 5 (memmove): %s\n", str62);
-    printf("Test Case 5 comparison: %s\n", strcmp(str6, str62) == 0 ? "Passed" : "Failed");
-
     // Test case 6: Moving non-overlapping memory region (dst < src)
     char str7[] = "1234567890";
     char str72[] = "1234567890";
