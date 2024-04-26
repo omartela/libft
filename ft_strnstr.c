@@ -15,16 +15,12 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	len_needle;
 
 	i = 0;
-	len_needle = ft_strlen(to_find);
-	if (!str)
-		len = *str;
-	if (len < len_needle)
-		return (0);
 	if (*to_find == '\0')
 		return ((char *)str);
+	if (len == 0 || !(*str))
+		return (NULL);
 	while (str[i] != '\0')
 	{
 		j = 0;
