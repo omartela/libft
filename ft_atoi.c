@@ -9,14 +9,20 @@
 /*   Updated: 2024/04/18 12:49:34 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	string_to_integer(const char *str)
+int	string_to_integer(const char *str, int sign)
 {
-	int	result;
+	long long int	result;
+	long long int	check;
 
 	result = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (*str - '0');
+		check = result;
+		result = result * 10 + sign * (*str - '0');
+		if (result > check && sign < 0)
+			return (0);
+		if (result < check && sign > 0)
+			return (-1);
 		++str;
 	}
 	return (result);
@@ -41,7 +47,6 @@ int	ft_atoi(const char *str)
 		}
 		++str;
 	}
-	atoi = string_to_integer(str);
-	atoi = sign * atoi;
+	atoi = string_to_integer(str, sign);
 	return (atoi);
 }
