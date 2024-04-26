@@ -75,11 +75,3 @@ char	*ft_itoa(int n)
 	number_to_string(ptr, n);
 	return (ptr);
 }
-
-/* int	main(void)
-{
-	printf("%s\n", ft_itoa(-2147483648));
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(-1));
-	printf("%s\n", ft_itoa('A'));
-} */

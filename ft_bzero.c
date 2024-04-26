@@ -23,12 +23,3 @@ void	ft_bzero(void *s, size_t len)
 		new = new + 1;
 	}
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-	char str[60] = "test";
-	ft_bzero(str, 1);
-	puts(str);
-	puts(str+2);
-}*/

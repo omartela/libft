@@ -19,11 +19,13 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 
 	i = 0;
 	len_needle = ft_strlen(to_find);
+	if (!str)
+		len = *str;
 	if (len < len_needle)
 		return (0);
 	if (*to_find == '\0')
 		return ((char *)str);
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		j = 0;
 		while (str[i] == to_find[j] && str[i] && i < len)
