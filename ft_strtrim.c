@@ -13,12 +13,14 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*ptr;
 
 	if (!s1 || !set)
 		return (NULL);
+	if (*s1 == '\0')
+		return (ft_strdup(""));
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[start]) && start <= end)
