@@ -9,7 +9,7 @@
 /*   Updated: 2024/04/18 12:49:34 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	string_to_integer(const char *str, int sign)
+static int	string_to_integer(const char *str, int sign)
 {
 	long long int	result;
 	long long int	check;
