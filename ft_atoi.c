@@ -50,4 +50,3 @@ int	ft_atoi(const char *str)
 	atoi = string_to_integer(str, sign);
 	return (atoi);
 }
-
