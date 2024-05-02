@@ -6,7 +6,7 @@
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:49:10 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/18 12:49:34 by omartela         ###   ########.fr       */
+/*   Updated: 2024/05/02 12:25:27 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 static int	string_to_integer(const char *str, int sign)
@@ -17,12 +17,12 @@ static int	string_to_integer(const char *str, int sign)
 	result = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		check = result;
-		result = result * 10 + sign * (*str - '0');
-		if (result > check && sign < 0)
+		check = result * 10 + sign * (*str - '0');
+		if (check / 10 != result && sign < 0)
 			return (0);
-		if (result < check && sign > 0)
+		if (check / 10 != result && sign > 0)
 			return (-1);
+		result = check;
 		++str;
 	}
 	return (result);
@@ -50,3 +50,4 @@ int	ft_atoi(const char *str)
 	atoi = string_to_integer(str, sign);
 	return (atoi);
 }
+
