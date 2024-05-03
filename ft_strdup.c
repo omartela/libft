@@ -9,13 +9,13 @@
 /*   Updated: 2024/01/30 13:43:53 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {
 	char	*str;
 	char	*p;
-	int		len;
+	size_t	len;
 
 	len = 0;
 	while (src[len])

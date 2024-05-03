@@ -13,10 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 typedef struct s_list
 {
@@ -67,4 +65,5 @@ int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
 #endif
