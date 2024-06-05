@@ -6,7 +6,7 @@
 #    By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 10:55:41 by omartela          #+#    #+#              #
-#    Updated: 2024/04/23 10:20:20 by omartela         ###   ########.fr        #
+#    Updated: 2024/06/05 10:08:19 by omartela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,8 @@ SRCS = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	get_next_line.c \
+	get_next_line_utils.c \
 
 BONUS_SRCS = ft_lstadd_back_bonus.c \
 	ft_lstadd_front_bonus.c \
