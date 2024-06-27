@@ -6,7 +6,7 @@
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 12:34:29 by omartela          #+#    #+#             */
-/*   Updated: 2024/04/17 12:36:55 by omartela         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:23:42 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 
 #endif
