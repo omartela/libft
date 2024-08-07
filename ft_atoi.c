@@ -6,7 +6,7 @@
 /*   By: omartela <omartela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:49:10 by omartela          #+#    #+#             */
-/*   Updated: 2024/05/02 12:25:27 by omartela         ###   ########.fr       */
+/*   Updated: 2024/08/07 15:29:26 by omartela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 static int	string_to_integer(const char *str, int sign)
@@ -25,6 +25,8 @@ static int	string_to_integer(const char *str, int sign)
 		result = check;
 		++str;
 	}
+	if (*str != '\0')
+		return (0);
 	return (result);
 }
 
