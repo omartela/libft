@@ -50,7 +50,9 @@ SRCS = ft_atoi.c \
 	get_next_line.c \
 	get_next_line_utils.c \
 	ft_realloc.c \
-	ft_recalloc.c
+	ft_recalloc.c \
+	ft_strndup.c \
+	ft_string_replace.c
 
 BONUS_SRCS = ft_lstadd_back_bonus.c \
 	ft_lstadd_front_bonus.c \

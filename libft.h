@@ -67,5 +67,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 void	*ft_recalloc(void *ptr, size_t old_size, size_t new_size);
+char	*ft_strndup(const char *s1, size_t n);
+char    *ft_string_replace(char *str, char *delimiter, char *insert);
 
 #endif
