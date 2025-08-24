@@ -374,7 +374,7 @@ valgrind --leak-check=full ./your_program
 
 ## 👨‍💻 Author
 
-**Omar Tela** - [@omartela](https://github.com/omartela)
+**omartela** - [@omartela](https://github.com/omartela)
 
 - Email: omartela@student.hive.fi
 - School: Hive Helsinki (42 Network)
