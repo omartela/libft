@@ -1,7 +1,6 @@
 # Libft - A Custom C Library
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/omartela/libft)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Language](https://img.shields.io/badge/language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
 
 **Libft** is a comprehensive C library that reimplements many standard library functions along with additional utility functions. This library serves as a foundation for C programming projects, providing reliable, well-tested implementations of essential functions.
