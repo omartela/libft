@@ -372,29 +372,6 @@ It's recommended to test with valgrind for memory leaks:
 valgrind --leak-check=full ./your_program
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Coding Standards
-
-- Follow the **42 School norm** coding standard
-- Use **tabs** for indentation
-- **25-line** function limit
-- **80-character** line limit
-- Comprehensive **error handling**
-- **No memory leaks**
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👨‍💻 Author
 
 **Omar Tela** - [@omartela](https://github.com/omartela)
@@ -407,9 +384,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **42 School** for the project foundation and coding standards
 - **Hive Helsinki** for the educational environment
 - The **C standard library** documentation and specifications
-- Contributors and testers who helped improve this library
-
----
 
 ⭐ **Star this repository if you find it helpful!**
 
