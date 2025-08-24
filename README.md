@@ -23,8 +23,6 @@
   - [Extended Functions](#extended-functions)
 - [Examples](#examples)
 - [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## 🎯 Overview
 
