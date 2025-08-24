@@ -1,0 +1,25 @@
+# Object files
+*.o
+
+# Static library
+*.a
+
+# Executable files
+*.exe
+*.out
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*~
+*.swp
+*.tmp
+
+# Bonus marker file
+.bonus
